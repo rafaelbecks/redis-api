@@ -1,0 +1,12 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+
+<IfModule mod_headers.c>
+      RewriteCond %{REQUEST_METHOD} OPTIONS 
+      RewriteRule ^(.*)$ $1 [R=200,L,E=HTTP_ORIGIN:%{HTTP:ORIGIN}e]]
+      Header unset Access-Control-Allow-Origin
+      Header always set Access-Control-Allow-Origin "*"                   
+      Header always set Access-Control-Allow-Methods "POST, GET, PUT, OPTIONS, PATCH, DELETE" 
+</IfModule>
